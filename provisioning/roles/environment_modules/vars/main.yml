@@ -1,0 +1,14 @@
+--- 
+role_pkgs:
+- tcl
+- tcl-dev
+
+modules_version: 3.2.10
+modules_appname: "modules-{{ modules_version }}"
+modules_archive: "{{ modules_appname }}.tar.gz"
+
+module_categories:
+- java
+- golang
+
+module_prefix: /usr/local # Explicity Specifying Default Value

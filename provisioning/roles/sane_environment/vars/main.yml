@@ -4,5 +4,4 @@ role_pkgs:
 - tmux
 - vim
 - rsync
-- tcl
 - git

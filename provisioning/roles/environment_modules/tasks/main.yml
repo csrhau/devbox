@@ -1,0 +1,51 @@
+--- 
+- name: Install Role Packages
+  apt: pkg={{ item }} state=present
+  with_items: role_pkgs
+
+- name: Unarchive Environment Modules Source
+  unarchive: src={{ modules_archive }}
+             dest=/usr/local/src
+
+- name: Configure Modules
+  command: ./configure --prefix={{ module_prefix }}
+  args:
+    chdir: /usr/local/src/{{ modules_appname }}
+    creates: "/usr/local/src/{{ modules_appname }}/Makefile"
+  environment:
+    CPPFLAGS: "-DUSE_INTERP_ERRORLINE"
+    
+- name: Compile Environment Modules
+  command: make -j {{ ansible_processor_cores }}
+  args:
+    chdir: /usr/local/src/{{ modules_appname }}
+    creates: "/usr/local/src/{{ modules_appname }}/modulecmd"
+
+- name: Install Environment Modules
+  command: make install
+  args:
+    chdir: /usr/local/src/{{ modules_appname }}
+    creates: "{{ module_prefix }}/Modules/{{ modules_version }}"
+
+- name: Create Module Versioning Link
+  file: path={{ module_prefix }}/Modules/default
+        src={{ module_prefix }}/Modules/{{ modules_version }}
+        state=link
+
+- name: Create Modules File Structure
+  file: path={{ module_prefix }}/Modules/default/{{ item }}
+        state=directory
+  with_items: module_categories
+
+- name: Register Module Files with Modules
+  lineinfile: dest={{ module_prefix }}/Modules/default/init/.modulespath
+              line="{{ module_prefix }}/Modules/default/{{ item }}"
+  with_items: module_categories
+
+- name: Add Modules to all user profiles
+  file: src="/usr/local/src/{{ modules_appname }}/etc/global/profile.modules"
+        dest=/etc/profile.d/{{ item }}
+        state=link
+  with_items:
+  - modules.sh
+  - modules.csh

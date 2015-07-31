@@ -1,0 +1,7 @@
+---
+# This Playbook Configures The Development Box
+
+- hosts: all
+  roles:
+  - sane_environment # Installs basic prerequisite packages (build-essential..)
+

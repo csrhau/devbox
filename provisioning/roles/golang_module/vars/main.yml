@@ -1,0 +1,9 @@
+--- 
+role_pkgs: []
+
+golang_version: 1.4.2
+golang_appname: "go{{ golang_version }}"
+golang_archive: "{{ golang_appname }}.linux-amd64.tar.gz"
+
+module_category: golang
+module_directory: /usr/local/Modules/default/{{ module_category }}

@@ -1,0 +1,12 @@
+--- 
+- name: Install Role Packages
+  apt: pkg={{ item }} state=present
+  with_items: role_pkgs
+
+- name: Unarchive Environment Modules Source
+  unarchive: src={{ golang_archive }}
+             dest=/opt/
+
+- name: Add golang module file
+  template: src="{{ golang_appname }}.j2"
+            dest="{{ module_directory }}/{{ golang_appname }}"

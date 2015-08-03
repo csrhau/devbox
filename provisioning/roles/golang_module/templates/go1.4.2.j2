@@ -8,15 +8,16 @@ proc ModulesHelp { } {
         puts stderr "\tgo1.4.2 - Loads golang v {{ golang_version }}"
 }
 
-set gopath ~/go
+set gopath ~/go-projects
 
 module-whatis	"loads the golang programming tool suite"
 
 setenv GOROOT /opt/go
 setenv GOPATH $gopath
+
 prepend-path PATH /opt/go/bin
+prepend-path PATH $gopath/bin
 
 if { ! [file exists $gopath] } {
   file mkdir $gopath
 }
-

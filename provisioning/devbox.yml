@@ -5,6 +5,6 @@
   roles:
   - sane_environment # Installs basic prerequisite packages (build-essential..)
   - environment_modules
+  - pyenv
   - golang_module
-
 

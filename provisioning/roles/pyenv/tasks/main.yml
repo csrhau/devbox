@@ -1,0 +1,8 @@
+---
+# This role sets up pyenv for a node
+- name: Check Out Latest pyenv
+  git: repo=https://github.com/yyuu/pyenv.git 
+       dest=.pyenv
+
+
+

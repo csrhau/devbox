@@ -14,7 +14,9 @@ module-whatis	"loads the golang programming tool suite v{{ golang_version }}"
 
 setenv GOROOT /opt/go
 setenv GOPATH $gopath
+
 prepend-path PATH /opt/go/bin
+prepend-path PATH $gopath/bin
 
 if { ! [file exists $gopath] } {
   file mkdir $gopath

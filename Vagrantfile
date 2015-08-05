@@ -4,7 +4,7 @@
 Vagrant.configure(2) do |config|
   config.vm.box = "debian/jessie64"
   config.vm.hostname = "devbox"
-  config.ssh.forward_agent
+  config.ssh.forward_agent = true
   config.vm.provider :virtualbox do |vb|
     vb.cpus = 2
   end

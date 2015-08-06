@@ -8,11 +8,12 @@ proc ModulesHelp { } {
         puts stderr "\t{{ golang_appname }} - Loads go v{{ golang_version }}"
 }
 
-set gopath ~/{{ golang_appname }}
+set gopath ~/go
+set goroot /opt/go
 
 module-whatis	"loads the golang programming tool suite v{{ golang_version }}"
 
-setenv GOROOT /opt/go
+setenv GOROOT $goroot
 setenv GOPATH $gopath
 
 prepend-path PATH /opt/go/bin

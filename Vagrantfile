@@ -10,6 +10,5 @@ Vagrant.configure(2) do |config|
   end
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "provisioning/devbox.yml"
-    ansible.sudo = true
   end
 end

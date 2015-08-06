@@ -1,0 +1,12 @@
+---
+# This Role sets a machine up for basic development tasks
+# by installing commonly used packages (build-essential, vim, curl etc)
+
+- name: Clone Dotfile Repo
+  git: repo=https://github.com/csrhau/dotfiles.git
+       dest=dotfiles
+
+- name: Setup Dotfiles
+  command: make
+  args:
+    chdir: dotfiles

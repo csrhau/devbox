@@ -5,11 +5,3 @@
 - name: Install Role Packages
   apt: pkg={{ item }} state=present update_cache=yes
   with_items: role_pkgs
-
-- name: Clone Personalisation 
-  git: repo=https://github.com/csrhau/personalisation.git
-       dest=.personalisation
-
-
-- name: Link In vimrc
-  file: src=.personalisation/vimrc dest=.vimrc state=link

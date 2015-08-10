@@ -1,0 +1,10 @@
+role_pkgs:
+- libssl-dev
+- libicu-dev
+- libffi-dev 
+- libgdbm-dev
+- libgdbm3 
+- libreadline6-dev
+- libncurses5-dev 
+- libyaml-dev
+- zlib1g-dev 

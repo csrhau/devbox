@@ -1,4 +1,5 @@
 role_pkgs:
+- autoconf
 - build-essential
 - curl
 - tmux

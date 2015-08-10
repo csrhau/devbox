@@ -8,3 +8,9 @@ role_pkgs:
 - libncurses5-dev 
 - libyaml-dev
 - zlib1g-dev 
+
+rbenv_plugins:
+- name: ruby-build
+  repo: https://github.com/sstephenson/ruby-build.git
+- name: rbenv-gem-rehash
+  repo: https://github.com/sstephenson/rbenv-gem-rehash.git

@@ -8,5 +8,5 @@
              dest=/opt/
 
 - name: Add golang module file
-  template: src="{{ golang_appname }}.j2"
+  template: src="go_cfg.j2"
             dest="{{ module_directory }}/{{ golang_appname }}"

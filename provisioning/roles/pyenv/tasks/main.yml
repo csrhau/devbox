@@ -1,8 +1,23 @@
 ---
 # This role sets up pyenv for a node
+- name: Install Role Packages
+  apt: pkg={{ item }} state=present update_cache=yes
+  become: yes
+  with_items: role_pkgs
+
 - name: Check Out Latest pyenv
   git: repo=https://github.com/yyuu/pyenv.git 
        dest=.pyenv
 
+- name: Check out pyenv plugins
+  git: repo={{ item.repo }}
+       dest=.pyenv/plugins/{{ item.name }}
+  with_items: pyenv_plugins
 
-
+- name: Include pyenv in path
+  lineinfile: line='export PATH="$HOME/.pyenv/bin:$PATH"' 
+              dest=.bashrc
+  
+- name: Include pyenv setup source script
+  lineinfile: line='eval "$(pyenv init -)"' 
+              dest=.bashrc

@@ -5,3 +5,4 @@ role_pkgs:
 - vim
 - rsync
 - git
+- cmake

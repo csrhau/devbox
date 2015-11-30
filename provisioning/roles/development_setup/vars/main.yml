@@ -1,8 +1,4 @@
 role_pkgs:
-- build-essential
-- curl
-- tmux
-- vim
-- rsync
-- git
+- cmake
 - gfortran
+- gdb

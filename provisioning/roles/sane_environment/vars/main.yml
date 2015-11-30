@@ -1,7 +1,6 @@
 role_pkgs:
 - autoconf
 - build-essential
-- cmake
 - curl
 - tmux
 - vim

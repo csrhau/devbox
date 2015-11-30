@@ -1,6 +1,10 @@
 ---
 # This Role sets a machine up for basic development tasks
-# by installing commonly used packages (build-essential, vim, curl etc)
+
+- name: Install Role Packages
+  apt: pkg={{ item }} state=present update_cache=yes
+  become: yes
+  with_items: role_pkgs
 
 - name: Clone Dotfile Repo
   git: repo=https://github.com/csrhau/dotfiles.git

@@ -2,3 +2,4 @@ role_pkgs:
 - cmake
 - gfortran
 - gdb
+- jq

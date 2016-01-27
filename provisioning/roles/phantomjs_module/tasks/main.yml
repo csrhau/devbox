@@ -1,0 +1,19 @@
+--- 
+- name: Install Role Packages
+  apt: pkg={{ item }} state=present
+  with_items: role_pkgs
+
+- name: Unarchive Environment Modules Source
+  unarchive: src={{ phantomjs_archive }}
+             dest=/opt/
+
+- name: Add phantomjs module file
+  template: src="phantomjs_cfg.j2"
+            dest="{{ module_directory }}/{{ phantomjs_appname }}"
+
+- name: Add latest version link
+  file: src="{{ module_directory }}/{{ phantomjs_appname }}"
+        dest="{{ module_directory }}/phantomjs"
+        state=link
+
+

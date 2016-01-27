@@ -1,0 +1,9 @@
+--- 
+role_pkgs: []
+
+phantomjs_version: "2.1.1"
+phantomjs_appname: "phantomjs-{{ phantomjs_version }}"
+phantomjs_archive: "{{ phantomjs_appname }}-linux-x86_64.tar.bz2"
+
+module_category: javascript
+module_directory: /usr/local/Modules/default/{{ module_category }}

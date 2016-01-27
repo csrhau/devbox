@@ -1,0 +1,17 @@
+#%Module1.0#####################################################################
+##
+## {{ phantomjs_appname }} modulefile
+##
+## phantomjs/{{ phantomjs_appname }}
+##
+proc ModulesHelp { } {
+        puts stderr "\t{{ phantomjs_appname }} - Loads go v{{ phantomjs_version }}"
+}
+
+module-whatis	"loads the phantomjs programming tool suite v{{ phantomjs_version }}"
+
+if { ![is-loaded nodejs] } {
+      module load nodejs
+}
+
+prepend-path PATH /opt/{{ phantomjs_appname }}-linux-x86_64/bin

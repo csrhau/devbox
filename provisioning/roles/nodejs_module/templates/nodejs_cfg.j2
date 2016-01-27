@@ -1,0 +1,13 @@
+#%Module1.0#####################################################################
+##
+## {{ nodejs_appname }} modulefile
+##
+## nodejs/{{ nodejs_appname }}
+##
+proc ModulesHelp { } {
+        puts stderr "\t{{ nodejs_appname }} - Loads go v{{ nodejs_version }}"
+}
+
+module-whatis	"loads the nodejs programming tool suite v{{ nodejs_version }}"
+
+prepend-path PATH /opt/{{ nodejs_appname }}-linux-x64/bin

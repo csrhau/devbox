@@ -10,5 +10,6 @@ modules_archive: "{{ modules_appname }}.tar.gz"
 module_categories:
 - java
 - golang
+- javascript
 
 module_prefix: /usr/local # Explicity Specifying Default Value

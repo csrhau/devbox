@@ -1,0 +1,9 @@
+--- 
+role_pkgs: []
+
+nodejs_version: "v4.2.6"
+nodejs_appname: "node-{{ nodejs_version }}"
+nodejs_archive: "{{ nodejs_appname }}-linux-x64.tar.xz"
+
+module_category: javascript
+module_directory: /usr/local/Modules/default/{{ module_category }}

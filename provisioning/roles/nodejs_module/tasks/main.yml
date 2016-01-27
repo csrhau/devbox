@@ -1,0 +1,19 @@
+--- 
+- name: Install Role Packages
+  apt: pkg={{ item }} state=present
+  with_items: role_pkgs
+
+- name: Unarchive Environment Modules Source
+  unarchive: src={{ nodejs_archive }}
+             dest=/opt/
+
+- name: Add nodejs module file
+  template: src="nodejs_cfg.j2"
+            dest="{{ module_directory }}/{{ nodejs_appname }}"
+
+- name: Add latest version link
+  file: src="{{ module_directory }}/{{ nodejs_appname }}"
+        dest="{{ module_directory }}/nodejs"
+        state=link
+
+

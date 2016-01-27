@@ -8,6 +8,8 @@
   - sane_environment # Installs basic prerequisite packages (build-essential..)
   - environment_modules
   - golang_module
+  - nodejs_module
+  - phantomjs_module
 
 - hosts: all
   roles: 
